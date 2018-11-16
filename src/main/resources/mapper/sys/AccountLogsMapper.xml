@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ywsoftware.oa.modules.sys.service.AccountLogsMapper">
+
+    <insert id="saveUserLog" parameterType="com.ywsoftware.oa.modules.sys.entity.AccountLogs">
+	INSERT INTO `user_logs` (`userId`,`loginTime`, `remark`, `browserName`, `browserType`, `browserVersion`, `deviceType`, `systemName`, `systemGroup`, `loginIp`, `cityId`, `cityName`, `otherInfo`)
+	VALUES(#{userId},#{loginTime},#{remark},#{browserName},#{browserType},#{browserVersion},#{deviceType},#{systemName},#{systemGroup},#{loginIp},#{cityId},#{cityName},#{otherInfo});
+	</insert>
+
+    <select id="findLastUserLog" parameterType="com.ywsoftware.oa.modules.sys.entity.AccountLogs"
+            resultType="com.ywsoftware.oa.modules.sys.entity.AccountLogs">
+        SELECT `id`,
+        `userId`,
+        `loginTime`,
+        `remark`,
+        `browserName`,
+        `browserType`,
+        `browserVersion`,
+        `deviceType`,
+        `systemName`,
+        `systemGroup`,
+        `loginIp`,
+        `cityId`,
+        `cityName`,
+        `otherInfo`
+	FROM user_logs WHERE  userId=#{userId} ORDER BY id DESC LIMIT 1
+    </select>
+
+    <!--查询不常用城市登录-->
+    <select id="findLoginCityCount" parameterType="com.ywsoftware.oa.modules.sys.entity.AccountLogs"
+            resultType="Integer">
+        SELECT COUNT(*) AS cityCount FROM (
+        SELECT  cityId ,cityName ,COUNT(cityId) AS cityCount  FROM  user_logs WHERE DATE_SUB(CURDATE(),INTERVAL 30 DAY) <![CDATA[ <= ]]>  date(loginTime)  AND userId=#{userId}
+        GROUP BY cityId
+        )t WHERE  t.cityCount>=3 AND  t.cityId =#{cityId}
+    </select>
+
+    <!--查询七天内登录次数-->
+    <select id="findLoginDayCount" parameterType="String"
+            resultType="Integer">
+        SELECT COUNT(*) AS dayTotal FROM user_logs WHERE DATE_SUB(CURDATE(), INTERVAL 7 DAY) <![CDATA[ <= ]]> date(loginTime)  AND userId=#{userId};
+    </select>
+
+    <!--密码错误次数-->
+    <select id="findLoginPassCount" parameterType="String"
+            resultType="Integer">
+        SELECT COUNT(*) AS errTotal FROM (
+        SELECT  remark AS errSum  FROM user_logs WHERE   userId=#{userId}  ORDER BY loginTime DESC LIMIT 5
+        )t WHERE t.errSum="账号或密码错误";
+    </select>
+
+</mapper>

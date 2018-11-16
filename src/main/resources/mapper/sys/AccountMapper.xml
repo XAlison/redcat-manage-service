@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ywsoftware.oa.modules.sys.service.AccountMapper">
+    <select id="findTenantAccounts" parameterType="String" resultType="com.ywsoftware.oa.modules.sys.model.TenantAccountModel">
+        SELECT ua.id AS accountId, ut.tenantName AS tenantName
+        FROM user_account AS ua
+        LEFT JOIN user_tenant AS ut ON ua.tenantId = ut.id
+        WHERE phoneNumber = #{phone} AND ua.state = 1 AND ut.`status` = 1
+    </select>
+</mapper>

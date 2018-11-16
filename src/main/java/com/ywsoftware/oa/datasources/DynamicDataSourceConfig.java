@@ -39,4 +39,5 @@ public class DynamicDataSourceConfig {
         targetDataSources.put(DataSourceNames.SECOND, secondDataSource);
         return new DynamicDataSource(firstDataSource, targetDataSources);
     }
+
 }
