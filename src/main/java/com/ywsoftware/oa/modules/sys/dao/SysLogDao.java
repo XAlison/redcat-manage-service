@@ -1,7 +1,7 @@
 package com.ywsoftware.oa.modules.sys.dao;
 
 import com.baomidou.mybatisplus.mapper.BaseMapper;
-import com.ywsoftware.oa.modules.sys.entity.SysLogEntity;
+import com.ywsoftware.oa.modules.sys.domain.entity.SysLogEntity;
 import org.apache.ibatis.annotations.Mapper;
 
 /**

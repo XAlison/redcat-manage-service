@@ -3,7 +3,7 @@ package com.ywsoftware.oa.modules.sys.service.impl;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 import com.ywsoftware.oa.common.utils.MapUtils;
 import com.ywsoftware.oa.modules.sys.dao.SysUserRoleDao;
-import com.ywsoftware.oa.modules.sys.entity.SysUserRoleEntity;
+import com.ywsoftware.oa.modules.sys.domain.entity.SysUserRoleEntity;
 import com.ywsoftware.oa.modules.sys.service.SysUserRoleService;
 import org.springframework.stereotype.Service;
 

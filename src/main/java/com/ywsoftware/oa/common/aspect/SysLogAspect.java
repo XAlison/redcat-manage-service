@@ -4,9 +4,13 @@ import com.google.gson.Gson;
 import com.ywsoftware.oa.common.annotation.SysLog;
 import com.ywsoftware.oa.common.utils.HttpContextUtils;
 import com.ywsoftware.oa.common.utils.IPUtils;
-import com.ywsoftware.oa.modules.sys.entity.SysLogEntity;
-import com.ywsoftware.oa.modules.sys.entity.SysUserEntity;
+import com.ywsoftware.oa.modules.sys.domain.entity.SysLogEntity;
+import com.ywsoftware.oa.modules.sys.domain.entity.SysUserEntity;
 import com.ywsoftware.oa.modules.sys.service.SysLogService;
+import java.lang.reflect.Method;
+import java.util.Date;
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import org.apache.shiro.SecurityUtils;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -14,11 +18,6 @@ import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.stereotype.Component;
-
-import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
-import java.lang.reflect.Method;
-import java.util.Date;
 
 
 /**

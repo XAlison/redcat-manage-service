@@ -8,18 +8,23 @@ import com.ywsoftware.oa.common.validator.Assert;
 import com.ywsoftware.oa.common.validator.ValidatorUtils;
 import com.ywsoftware.oa.common.validator.group.AddGroup;
 import com.ywsoftware.oa.common.validator.group.UpdateGroup;
-import com.ywsoftware.oa.modules.sys.entity.SysUserEntity;
+import com.ywsoftware.oa.modules.sys.domain.entity.SysUserEntity;
 import com.ywsoftware.oa.modules.sys.form.PasswordForm;
 import com.ywsoftware.oa.modules.sys.service.SysUserRoleService;
 import com.ywsoftware.oa.modules.sys.service.SysUserService;
+import java.util.List;
+import java.util.Map;
+import javax.annotation.Resource;
 import org.apache.commons.lang.ArrayUtils;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.apache.shiro.crypto.hash.Sha256Hash;
-import org.springframework.web.bind.annotation.*;
-
-import javax.annotation.Resource;
-import java.util.List;
-import java.util.Map;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * 系统用户

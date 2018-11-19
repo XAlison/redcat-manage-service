@@ -1,7 +1,7 @@
 package com.ywsoftware.oa.modules.sys.oauth2;
 
-import com.ywsoftware.oa.modules.sys.entity.SysUserEntity;
-import com.ywsoftware.oa.modules.sys.entity.SysUserTokenEntity;
+import com.ywsoftware.oa.modules.sys.domain.entity.SysUserEntity;
+import com.ywsoftware.oa.modules.sys.domain.entity.SysUserTokenEntity;
 import com.ywsoftware.oa.modules.sys.service.ShiroService;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;

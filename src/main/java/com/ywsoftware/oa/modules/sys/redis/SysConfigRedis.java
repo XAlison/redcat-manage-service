@@ -2,7 +2,7 @@ package com.ywsoftware.oa.modules.sys.redis;
 
 import com.ywsoftware.oa.common.utils.RedisKeys;
 import com.ywsoftware.oa.common.utils.RedisUtils;
-import com.ywsoftware.oa.modules.sys.entity.SysConfigEntity;
+import com.ywsoftware.oa.modules.sys.domain.entity.SysConfigEntity;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;

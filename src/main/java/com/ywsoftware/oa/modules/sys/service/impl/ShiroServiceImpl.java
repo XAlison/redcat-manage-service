@@ -4,15 +4,18 @@ import com.ywsoftware.oa.common.utils.Constant;
 import com.ywsoftware.oa.modules.sys.dao.SysMenuDao;
 import com.ywsoftware.oa.modules.sys.dao.SysUserDao;
 import com.ywsoftware.oa.modules.sys.dao.SysUserTokenDao;
-import com.ywsoftware.oa.modules.sys.entity.SysMenuEntity;
-import com.ywsoftware.oa.modules.sys.entity.SysUserEntity;
-import com.ywsoftware.oa.modules.sys.entity.SysUserTokenEntity;
+import com.ywsoftware.oa.modules.sys.domain.entity.SysMenuEntity;
+import com.ywsoftware.oa.modules.sys.domain.entity.SysUserEntity;
+import com.ywsoftware.oa.modules.sys.domain.entity.SysUserTokenEntity;
 import com.ywsoftware.oa.modules.sys.service.ShiroService;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+import javax.annotation.Resource;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Service;
-
-import javax.annotation.Resource;
-import java.util.*;
 
 @Service
 public class ShiroServiceImpl implements ShiroService {

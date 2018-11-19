@@ -4,7 +4,7 @@ import com.ywsoftware.oa.common.annotation.SysLog;
 import com.ywsoftware.oa.common.utils.PageUtils;
 import com.ywsoftware.oa.common.utils.Result;
 import com.ywsoftware.oa.common.validator.ValidatorUtils;
-import com.ywsoftware.oa.modules.sys.entity.SysConfigEntity;
+import com.ywsoftware.oa.modules.sys.domain.entity.SysConfigEntity;
 import com.ywsoftware.oa.modules.sys.service.SysConfigService;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.web.bind.annotation.*;

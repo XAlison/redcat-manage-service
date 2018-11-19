@@ -3,12 +3,11 @@ package com.ywsoftware.oa.modules.sys.service.impl;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 import com.ywsoftware.oa.common.utils.Result;
 import com.ywsoftware.oa.modules.sys.dao.SysUserTokenDao;
-import com.ywsoftware.oa.modules.sys.entity.SysUserTokenEntity;
+import com.ywsoftware.oa.modules.sys.domain.entity.SysUserTokenEntity;
 import com.ywsoftware.oa.modules.sys.oauth2.TokenGenerator;
 import com.ywsoftware.oa.modules.sys.service.SysUserTokenService;
-import org.springframework.stereotype.Service;
-
 import java.util.Date;
+import org.springframework.stereotype.Service;
 
 
 @Service("sysUserTokenService")

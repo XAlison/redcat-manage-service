@@ -2,7 +2,7 @@ package com.ywsoftware.oa.modules.sys.service;
 
 import com.baomidou.mybatisplus.service.IService;
 import com.ywsoftware.oa.common.utils.PageUtils;
-import com.ywsoftware.oa.modules.sys.entity.SysUserEntity;
+import com.ywsoftware.oa.modules.sys.domain.entity.SysUserEntity;
 
 import java.util.List;
 import java.util.Map;

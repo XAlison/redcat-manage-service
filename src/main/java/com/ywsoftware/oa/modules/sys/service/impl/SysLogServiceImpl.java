@@ -6,7 +6,7 @@ import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 import com.ywsoftware.oa.common.utils.PageUtils;
 import com.ywsoftware.oa.common.utils.Query;
 import com.ywsoftware.oa.modules.sys.dao.SysLogDao;
-import com.ywsoftware.oa.modules.sys.entity.SysLogEntity;
+import com.ywsoftware.oa.modules.sys.domain.entity.SysLogEntity;
 import com.ywsoftware.oa.modules.sys.service.SysLogService;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Service;

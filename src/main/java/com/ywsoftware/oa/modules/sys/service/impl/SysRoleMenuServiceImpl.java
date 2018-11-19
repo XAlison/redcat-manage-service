@@ -2,7 +2,7 @@ package com.ywsoftware.oa.modules.sys.service.impl;
 
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 import com.ywsoftware.oa.modules.sys.dao.SysRoleMenuDao;
-import com.ywsoftware.oa.modules.sys.entity.SysRoleMenuEntity;
+import com.ywsoftware.oa.modules.sys.domain.entity.SysRoleMenuEntity;
 import com.ywsoftware.oa.modules.sys.service.SysRoleMenuService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

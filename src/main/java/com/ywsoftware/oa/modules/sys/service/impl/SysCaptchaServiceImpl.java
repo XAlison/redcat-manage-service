@@ -6,7 +6,7 @@ import com.google.code.kaptcha.Producer;
 import com.ywsoftware.oa.common.exception.GlobalException;
 import com.ywsoftware.oa.common.utils.DateUtils;
 import com.ywsoftware.oa.modules.sys.dao.SysCaptchaDao;
-import com.ywsoftware.oa.modules.sys.entity.SysCaptchaEntity;
+import com.ywsoftware.oa.modules.sys.domain.entity.SysCaptchaEntity;
 import com.ywsoftware.oa.modules.sys.service.SysCaptchaService;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Service;

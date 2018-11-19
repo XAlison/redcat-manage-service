@@ -1,7 +1,8 @@
 package com.ywsoftware.oa.modules.sys.service;
 
-import com.ywsoftware.oa.modules.sys.entity.SysUserEntity;
-import com.ywsoftware.oa.modules.sys.entity.SysUserTokenEntity;
+import com.ywsoftware.oa.modules.sys.domain.entity.SysUserTokenEntity;
+import com.ywsoftware.oa.modules.sys.domain.entity.SysUserEntity;
+import com.ywsoftware.oa.modules.sys.domain.entity.SysUserTokenEntity;
 
 import java.util.Set;
 

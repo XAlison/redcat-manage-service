@@ -4,7 +4,7 @@ import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 import com.ywsoftware.oa.common.utils.Constant;
 import com.ywsoftware.oa.common.utils.MapUtils;
 import com.ywsoftware.oa.modules.sys.dao.SysMenuDao;
-import com.ywsoftware.oa.modules.sys.entity.SysMenuEntity;
+import com.ywsoftware.oa.modules.sys.domain.entity.SysMenuEntity;
 import com.ywsoftware.oa.modules.sys.service.SysMenuService;
 import com.ywsoftware.oa.modules.sys.service.SysRoleMenuService;
 import com.ywsoftware.oa.modules.sys.service.SysUserService;

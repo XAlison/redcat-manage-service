@@ -2,7 +2,7 @@ package com.ywsoftware.oa.modules.sys.service;
 
 import com.baomidou.mybatisplus.service.IService;
 import com.ywsoftware.oa.common.utils.Result;
-import com.ywsoftware.oa.modules.sys.entity.SysUserTokenEntity;
+import com.ywsoftware.oa.modules.sys.domain.entity.SysUserTokenEntity;
 
 /**
  * 用户Token

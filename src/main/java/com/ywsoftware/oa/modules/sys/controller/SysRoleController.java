@@ -5,7 +5,7 @@ import com.ywsoftware.oa.common.utils.Constant;
 import com.ywsoftware.oa.common.utils.PageUtils;
 import com.ywsoftware.oa.common.utils.Result;
 import com.ywsoftware.oa.common.validator.ValidatorUtils;
-import com.ywsoftware.oa.modules.sys.entity.SysRoleEntity;
+import com.ywsoftware.oa.modules.sys.domain.entity.SysRoleEntity;
 import com.ywsoftware.oa.modules.sys.service.SysRoleMenuService;
 import com.ywsoftware.oa.modules.sys.service.SysRoleService;
 import org.apache.shiro.authz.annotation.RequiresPermissions;

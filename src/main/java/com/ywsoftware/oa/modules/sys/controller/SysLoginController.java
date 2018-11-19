@@ -1,7 +1,7 @@
 package com.ywsoftware.oa.modules.sys.controller;
 
 import com.ywsoftware.oa.common.utils.Result;
-import com.ywsoftware.oa.modules.sys.entity.SysUserEntity;
+import com.ywsoftware.oa.modules.sys.domain.entity.SysUserEntity;
 import com.ywsoftware.oa.modules.sys.form.SysLoginForm;
 import com.ywsoftware.oa.modules.sys.service.SysCaptchaService;
 import com.ywsoftware.oa.modules.sys.service.SysUserService;

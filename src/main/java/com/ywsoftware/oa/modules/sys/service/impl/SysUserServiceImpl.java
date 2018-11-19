@@ -8,7 +8,7 @@ import com.ywsoftware.oa.common.utils.Constant;
 import com.ywsoftware.oa.common.utils.PageUtils;
 import com.ywsoftware.oa.common.utils.Query;
 import com.ywsoftware.oa.modules.sys.dao.SysUserDao;
-import com.ywsoftware.oa.modules.sys.entity.SysUserEntity;
+import com.ywsoftware.oa.modules.sys.domain.entity.SysUserEntity;
 import com.ywsoftware.oa.modules.sys.service.SysRoleService;
 import com.ywsoftware.oa.modules.sys.service.SysUserRoleService;
 import com.ywsoftware.oa.modules.sys.service.SysUserService;

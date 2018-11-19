@@ -1,7 +1,7 @@
 package com.ywsoftware.oa.common.utils;
 
 import com.ywsoftware.oa.common.exception.GlobalException;
-import com.ywsoftware.oa.modules.sys.entity.SysUserEntity;
+import com.ywsoftware.oa.modules.sys.domain.entity.SysUserEntity;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.Subject;

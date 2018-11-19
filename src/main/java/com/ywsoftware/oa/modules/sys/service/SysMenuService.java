@@ -1,7 +1,7 @@
 package com.ywsoftware.oa.modules.sys.service;
 
 import com.baomidou.mybatisplus.service.IService;
-import com.ywsoftware.oa.modules.sys.entity.SysMenuEntity;
+import com.ywsoftware.oa.modules.sys.domain.entity.SysMenuEntity;
 
 import java.util.List;
 

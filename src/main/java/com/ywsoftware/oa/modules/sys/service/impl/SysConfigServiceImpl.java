@@ -8,7 +8,7 @@ import com.ywsoftware.oa.common.exception.GlobalException;
 import com.ywsoftware.oa.common.utils.PageUtils;
 import com.ywsoftware.oa.common.utils.Query;
 import com.ywsoftware.oa.modules.sys.dao.SysConfigDao;
-import com.ywsoftware.oa.modules.sys.entity.SysConfigEntity;
+import com.ywsoftware.oa.modules.sys.domain.entity.SysConfigEntity;
 import com.ywsoftware.oa.modules.sys.redis.SysConfigRedis;
 import com.ywsoftware.oa.modules.sys.service.SysConfigService;
 import org.apache.commons.lang.StringUtils;

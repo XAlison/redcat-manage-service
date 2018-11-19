@@ -1,6 +1,7 @@
 package com.ywsoftware.oa;
 
 import com.ywsoftware.oa.datasources.DynamicDataSourceConfig;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
