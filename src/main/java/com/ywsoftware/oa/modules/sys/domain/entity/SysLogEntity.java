@@ -13,7 +13,7 @@ import java.util.Date;
  * @author xiewl
  * @version 1.0
  */
-@TableName("sys_log")
+@TableName("user_operation_log")
 public class SysLogEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 

@@ -1,5 +1,7 @@
 package com.ywsoftware.oa.modules.sys.service.impl;
 
+import com.ywsoftware.oa.modules.sys.domain.PaginatedFilter;
+import com.ywsoftware.oa.modules.sys.domain.PaginatedItems;
 import com.ywsoftware.oa.modules.sys.domain.entity.AccountLogs;
 import com.ywsoftware.oa.modules.sys.domain.enums.AccountStateEnum;
 import com.ywsoftware.oa.modules.sys.service.mapper.AccountLogsMapper;
@@ -7,6 +9,7 @@ import eu.bitwalker.useragentutils.Browser;
 import eu.bitwalker.useragentutils.OperatingSystem;
 import eu.bitwalker.useragentutils.UserAgent;
 import java.util.Date;
+import java.util.List;
 import java.util.Objects;
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Service;
@@ -118,5 +121,11 @@ public class AccountLogsService {
             }
         }
         return stateEnum.getState();
+    }
+
+    public PaginatedItems<AccountLogs> getLoginLogs(PaginatedFilter filter) {
+        List<AccountLogs> loginLogs = logsMapper.getLoginLogs(filter);
+        Long totalCount = logsMapper.getLoginLogsCount(filter);
+        return new PaginatedItems<>(loginLogs, totalCount);
     }
 }

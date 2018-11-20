@@ -51,4 +51,32 @@
         )t WHERE t.errSum="账号或密码错误";
     </select>
 
+    <!--查询登录日志-->
+    <select id="getLoginLogs"
+            parameterType="com.ywsoftware.oa.modules.sys.domain.PaginatedFilter"
+            resultType="com.ywsoftware.oa.modules.sys.domain.entity.AccountLogs">
+        SELECT * FROM  user_logs WHERE 1=1
+        <if test="filters.userId != null and filters.userId !=''">
+            AND user_logs.userId LIKE '%${filters.userId}%'
+        </if>
+        <if test="filters.cityName != null and filters.cityName !=''">
+            AND user_logs.cityName LIKE '%${filters.cityName}%'
+        </if>
+        ORDER BY user_logs.id DESC
+        LIMIT #{start}, #{size}
+    </select>
+    <!--查询登录日志记录数-->
+    <select id="getLoginLogsCount"
+            parameterType="com.ywsoftware.oa.modules.sys.domain.PaginatedFilter"
+            resultType="Long">
+        SELECT COUNT(*)  FROM  user_logs  WHERE 1=1
+        <if test="filters.userId != null and filters.userId !=''">
+            AND user_logs.userId LIKE '%${filters.userId}%'
+        </if>
+        <if test="filters.cityName != null and filters.cityName !=''">
+            AND user_logs.cityName LIKE '%${filters.cityName}%'
+        </if>
+        ORDER BY user_logs.id DESC
+    </select>
+
 </mapper>
