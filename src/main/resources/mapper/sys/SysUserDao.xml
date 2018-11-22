@@ -4,21 +4,21 @@
 <mapper namespace="com.ywsoftware.oa.modules.sys.dao.SysUserDao">
 	<!-- 查询用户的所有权限 -->
 	<select id="queryAllPerms" resultType="string">
-		select m.perms from sys_user_role ur 
-			LEFT JOIN sys_role_menu rm on ur.role_id = rm.role_id 
-			LEFT JOIN sys_menu m on rm.menu_id = m.menu_id 
+		select m.perms from tab_user_role ur
+			LEFT JOIN tab_role_menu rm on ur.role_id = rm.role_id
+			LEFT JOIN tab_menu m on rm.menu_id = m.menu_id
 		where ur.user_id = #{userId}
 	</select>
 	
 	<!-- 查询用户的所有菜单ID --> 
 	<select id="queryAllMenuId" resultType="long">
 		select distinct rm.menu_id from sys_user_role ur 
-			LEFT JOIN sys_role_menu rm on ur.role_id = rm.role_id 
+			LEFT JOIN tab_role_menu rm on ur.role_id = rm.role_id
 		where ur.user_id = #{userId}
 	</select>
 	
-	<select id="queryByUserName" resultType="com.ywsoftware.oa.modules.sys.domain.entity.SysUserEntity">
-		select * from sys_user where username = #{username}
+	<select id="queryByUserName" resultType="com.ywsoftware.oa.modules.sys.domain.entity.Account">
+		select * from user_account where username = #{username}
 	</select>
 
 </mapper>

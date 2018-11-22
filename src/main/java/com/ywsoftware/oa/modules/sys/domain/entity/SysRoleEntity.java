@@ -15,7 +15,7 @@ import java.util.List;
  * @author xiewl
  * @version 1.0
  */
-@TableName("sys_role")
+@TableName("tab_role")
 public class SysRoleEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
@@ -39,7 +39,7 @@ public class SysRoleEntity implements Serializable {
 	/**
 	 * 创建者ID
 	 */
-	private Long createUserId;
+	private String createUserId;
 
 	@TableField(exist=false)
 	private List<Long> menuIdList;
@@ -113,11 +113,11 @@ public class SysRoleEntity implements Serializable {
 		this.menuIdList = menuIdList;
 	}
 
-	public Long getCreateUserId() {
+	public String getCreateUserId() {
 		return createUserId;
 	}
 
-	public void setCreateUserId(Long createUserId) {
+	public void setCreateUserId(String createUserId) {
 		this.createUserId = createUserId;
 	}
 	

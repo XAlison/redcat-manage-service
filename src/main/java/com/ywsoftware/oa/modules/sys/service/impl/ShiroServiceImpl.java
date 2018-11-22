@@ -4,8 +4,8 @@ import com.ywsoftware.oa.common.utils.Constant;
 import com.ywsoftware.oa.modules.sys.dao.SysMenuDao;
 import com.ywsoftware.oa.modules.sys.dao.SysUserDao;
 import com.ywsoftware.oa.modules.sys.dao.SysUserTokenDao;
+import com.ywsoftware.oa.modules.sys.domain.entity.Account;
 import com.ywsoftware.oa.modules.sys.domain.entity.SysMenuEntity;
-import com.ywsoftware.oa.modules.sys.domain.entity.SysUserEntity;
 import com.ywsoftware.oa.modules.sys.domain.entity.SysUserTokenEntity;
 import com.ywsoftware.oa.modules.sys.service.ShiroService;
 import java.util.ArrayList;
@@ -30,11 +30,11 @@ public class ShiroServiceImpl implements ShiroService {
     private SysUserTokenDao sysUserTokenDao;
 
     @Override
-    public Set<String> getUserPermissions(long userId) {
+    public Set<String> getUserPermissions(String userId) {
         List<String> permsList;
 
         //系统管理员，拥有最高权限
-        if(userId == Constant.SUPER_ADMIN){
+        if(Constant.SUPER_ADMIN.contains(userId)){
             List<SysMenuEntity> menuList = sysMenuDao.selectList(null);
             permsList = new ArrayList<>(menuList.size());
             for(SysMenuEntity menu : menuList){
@@ -60,7 +60,7 @@ public class ShiroServiceImpl implements ShiroService {
     }
 
     @Override
-    public SysUserEntity queryUser(Long userId) {
+    public Account queryUser(String userId) {
         return sysUserDao.selectById(userId);
     }
 }

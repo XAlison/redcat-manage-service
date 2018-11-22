@@ -1,5 +1,8 @@
 package com.ywsoftware.oa.common.utils;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * 常量
  *
@@ -8,7 +11,11 @@ package com.ywsoftware.oa.common.utils;
  */
 public class Constant {
 	/** 超级管理员ID */
-	public static final int SUPER_ADMIN = 1;
+	public static final List<String> SUPER_ADMIN=new ArrayList<String>(){{
+	    add("15EC8080-5A50-4B8D-A94C-0A514EF1FBB1");
+        add("15EC8080-5A60-4911-9712-CA5D2BC01F54");
+        add("15EC8080-5DF0-4F00-9892-E324C83F5CA0");
+    }};
 
 	/**
 	 * 菜单类型

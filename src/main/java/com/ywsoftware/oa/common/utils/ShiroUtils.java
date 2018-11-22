@@ -1,7 +1,7 @@
 package com.ywsoftware.oa.common.utils;
 
 import com.ywsoftware.oa.common.exception.GlobalException;
-import com.ywsoftware.oa.modules.sys.domain.entity.SysUserEntity;
+import com.ywsoftware.oa.modules.sys.domain.entity.Account;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.Subject;
@@ -22,12 +22,12 @@ public class ShiroUtils {
 		return SecurityUtils.getSubject();
 	}
 
-	public static SysUserEntity getUserEntity() {
-		return (SysUserEntity)SecurityUtils.getSubject().getPrincipal();
+	public static Account getUserEntity() {
+		return (Account)SecurityUtils.getSubject().getPrincipal();
 	}
 
-	public static Long getUserId() {
-		return getUserEntity().getUserId();
+	public static String getUserId() {
+		return getUserEntity().getId();
 	}
 	
 	public static void setSessionAttribute(Object key, Object value) {

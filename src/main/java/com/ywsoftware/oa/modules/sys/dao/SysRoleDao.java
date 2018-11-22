@@ -18,5 +18,5 @@ public interface SysRoleDao extends BaseMapper<SysRoleEntity> {
 	/**
 	 * 查询用户创建的角色ID列表
 	 */
-	List<Long> queryRoleIdList(Long createUserId);
+	List<Long> queryRoleIdList(String createUserId);
 }

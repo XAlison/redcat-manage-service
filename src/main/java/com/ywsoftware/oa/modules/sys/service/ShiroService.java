@@ -1,9 +1,7 @@
 package com.ywsoftware.oa.modules.sys.service;
 
+import com.ywsoftware.oa.modules.sys.domain.entity.Account;
 import com.ywsoftware.oa.modules.sys.domain.entity.SysUserTokenEntity;
-import com.ywsoftware.oa.modules.sys.domain.entity.SysUserEntity;
-import com.ywsoftware.oa.modules.sys.domain.entity.SysUserTokenEntity;
-
 import java.util.Set;
 
 /**
@@ -16,7 +14,7 @@ public interface ShiroService {
     /**
      * 获取用户权限列表
      */
-    Set<String> getUserPermissions(long userId);
+    Set<String> getUserPermissions(String userId);
 
     SysUserTokenEntity queryByToken(String token);
 
@@ -24,5 +22,5 @@ public interface ShiroService {
      * 根据用户ID，查询用户
      * @param userId
      */
-    SysUserEntity queryUser(Long userId);
+    Account queryUser(String userId);
 }

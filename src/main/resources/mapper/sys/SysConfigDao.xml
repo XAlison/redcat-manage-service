@@ -4,12 +4,12 @@
 
 	<!-- 根据key，更新value -->
 	<update id="updateValueByKey" parameterType="map">
-		update sys_config set param_value = #{paramValue} where param_key = #{paramKey}
+		update tab_config set param_value = #{paramValue} where param_key = #{paramKey}
 	</update>
 
 	<!-- 根据key，查询value -->
 <select id="queryByKey" parameterType="string" resultType="com.ywsoftware.oa.modules.sys.domain.entity.SysConfigEntity">
-		select * from sys_config where param_key = #{paramKey}
+		select * from tab_config where param_key = #{paramKey}
 	</select>
 	
 </mapper>

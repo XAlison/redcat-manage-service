@@ -1,8 +1,11 @@
 package com.ywsoftware.oa.modules.sys.domain.entity;
 
+import com.baomidou.mybatisplus.annotations.TableName;
 import com.ywsoftware.oa.modules.sys.domain.AggregateRoot;
 import com.ywsoftware.oa.modules.sys.domain.EntityImpl;
+import java.util.List;
 
+@TableName("user_account")
 public class Account extends EntityImpl implements AggregateRoot {
 
     public static final String DEFAULT_PASSWORD = "888888";
@@ -17,6 +20,7 @@ public class Account extends EntityImpl implements AggregateRoot {
     private boolean isManager;
     private String lastLoginTime;
     private String tenantId;
+    private List<Long> roleIdList;
 
     public String getName() {
         return name;
@@ -104,5 +108,13 @@ public class Account extends EntityImpl implements AggregateRoot {
 
     public void setTenantId(String tenantId) {
         this.tenantId = tenantId;
+    }
+
+    public List<Long> getRoleIdList() {
+        return roleIdList;
+    }
+
+    public void setRoleIdList(List<Long> roleIdList) {
+        this.roleIdList = roleIdList;
     }
 }

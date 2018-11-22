@@ -8,6 +8,7 @@ import com.ywsoftware.oa.common.validator.ValidatorUtils;
 import com.ywsoftware.oa.modules.sys.domain.entity.SysRoleEntity;
 import com.ywsoftware.oa.modules.sys.service.SysRoleMenuService;
 import com.ywsoftware.oa.modules.sys.service.SysRoleService;
+import java.util.Objects;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,6 +27,7 @@ import java.util.Map;
 @RequestMapping("/sys/role")
 public class SysRoleController extends AbstractController {
 
+
 	@Resource
 	private SysRoleService sysRoleService;
 
@@ -39,7 +41,7 @@ public class SysRoleController extends AbstractController {
 	@RequiresPermissions("sys:role:list")
 	public Result list(@RequestParam Map<String, Object> params){
 		//如果不是超级管理员，则只查询自己创建的角色列表
-		if(getUserId() != Constant.SUPER_ADMIN){
+		if(!Constant.SUPER_ADMIN.contains(getUserId())){
 			params.put("createUserId", getUserId());
 		}
 
@@ -57,7 +59,7 @@ public class SysRoleController extends AbstractController {
 		Map<String, Object> map = new HashMap<>();
 		
 		//如果不是超级管理员，则只查询自己所拥有的角色列表
-		if(getUserId() != Constant.SUPER_ADMIN){
+		if(!Constant.SUPER_ADMIN.contains(getUserId())){
 			map.put("createUserId", getUserId());
 		}
 		List<SysRoleEntity> list = sysRoleService.selectByMap(map);

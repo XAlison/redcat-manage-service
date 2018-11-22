@@ -5,7 +5,7 @@ import com.ywsoftware.oa.common.utils.CookieHelper;
 import com.ywsoftware.oa.common.utils.MD5;
 import com.ywsoftware.oa.modules.sys.domain.entity.Account;
 import com.ywsoftware.oa.modules.sys.domain.login.LoginCookie;
-import com.ywsoftware.oa.modules.sys.model.LoginModel;
+import com.ywsoftware.oa.modules.sys.domain.model.LoginModel;
 import com.ywsoftware.oa.modules.sys.service.mapper.AccountMapper;
 import java.security.NoSuchAlgorithmException;
 import org.slf4j.Logger;

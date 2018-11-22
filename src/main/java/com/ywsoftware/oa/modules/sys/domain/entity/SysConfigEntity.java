@@ -11,7 +11,7 @@ import javax.validation.constraints.NotBlank;
  * @author xiewl
  * @version 1.0
  */
-@TableName("sys_config")
+@TableName("tab_config")
 public class SysConfigEntity {
 	@TableId
 	private Long id;

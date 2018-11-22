@@ -35,6 +35,6 @@ public class TenantController extends AbstractController {
 
     @GetMapping("getTenantInfoByTenantId")
     public UserTenant getTenantInfo() throws Exception {
-        return multitenantService.getTenantInfoById(/*getLoginCookie().getTenantId()*/null);
+        return multitenantService.getTenantInfoById(getUser().getTenantId());
     }
 }

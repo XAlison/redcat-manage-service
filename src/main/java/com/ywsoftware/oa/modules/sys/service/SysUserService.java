@@ -1,11 +1,8 @@
 package com.ywsoftware.oa.modules.sys.service;
 
 import com.baomidou.mybatisplus.service.IService;
-import com.ywsoftware.oa.common.utils.PageUtils;
-import com.ywsoftware.oa.modules.sys.domain.entity.SysUserEntity;
-
+import com.ywsoftware.oa.modules.sys.domain.entity.Account;
 import java.util.List;
-import java.util.Map;
 
 /**
  * 系统用户
@@ -13,46 +10,22 @@ import java.util.Map;
  * @author xiewl
  * @version 1.0
  */
-public interface SysUserService extends IService<SysUserEntity> {
-
-	PageUtils queryPage(Map<String, Object> params);
+public interface SysUserService extends IService<Account> {
 
 	/**
 	 * 查询用户的所有权限
 	 * @param userId  用户ID
 	 */
-	List<String> queryAllPerms(Long userId);
+	List<String> queryAllPerms(String userId);
 	
 	/**
 	 * 查询用户的所有菜单ID
 	 */
-	List<Long> queryAllMenuId(Long userId);
+	List<Long> queryAllMenuId(String userId);
 
 	/**
 	 * 根据用户名，查询系统用户
 	 */
-	SysUserEntity queryByUserName(String username);
+	Account queryByUserName(String username);
 
-	/**
-	 * 保存用户
-	 */
-	void save(SysUserEntity user);
-	
-	/**
-	 * 修改用户
-	 */
-	void update(SysUserEntity user);
-	
-	/**
-	 * 删除用户
-	 */
-	void deleteBatch(Long[] userIds);
-
-	/**
-	 * 修改密码
-	 * @param userId       用户ID
-	 * @param password     原密码
-	 * @param newPassword  新密码
-	 */
-	boolean updatePassword(Long userId, String password, String newPassword);
 }

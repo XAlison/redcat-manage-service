@@ -13,13 +13,13 @@ import java.util.Date;
  * @author xiewl
  * @version 1.0
  */
-@TableName("sys_user_token")
+@TableName("tab_user_token")
 public class SysUserTokenEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	//用户ID
 	@TableId(type = IdType.INPUT)
-	private Long userId;
+	private String userId;
 
 	//token
 	private String token;
@@ -33,13 +33,13 @@ public class SysUserTokenEntity implements Serializable {
 	/**
 	 * 设置：用户ID
 	 */
-	public void setUserId(Long userId) {
+	public void setUserId(String userId) {
 		this.userId = userId;
 	}
 	/**
 	 * 获取：用户ID
 	 */
-	public Long getUserId() {
+	public String getUserId() {
 		return userId;
 	}
 	/**

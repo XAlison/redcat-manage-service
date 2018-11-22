@@ -13,6 +13,7 @@ import com.ywsoftware.oa.modules.sys.service.SysRoleMenuService;
 import com.ywsoftware.oa.modules.sys.service.SysRoleService;
 import com.ywsoftware.oa.modules.sys.service.SysUserRoleService;
 import com.ywsoftware.oa.modules.sys.service.SysUserService;
+import java.util.Objects;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -95,7 +96,7 @@ public class SysRoleServiceImpl extends ServiceImpl<SysRoleDao, SysRoleEntity> i
 
 
     @Override
-	public List<Long> queryRoleIdList(Long createUserId) {
+	public List<Long> queryRoleIdList(String createUserId) {
 		return baseMapper.queryRoleIdList(createUserId);
 	}
 
@@ -104,7 +105,7 @@ public class SysRoleServiceImpl extends ServiceImpl<SysRoleDao, SysRoleEntity> i
 	 */
 	private void checkPrems(SysRoleEntity role){
 		//如果不是超级管理员，则需要判断角色的权限是否超过自己的权限
-		if(role.getCreateUserId() == Constant.SUPER_ADMIN){
+		if(Constant.SUPER_ADMIN.contains(role.getCreateUserId())){
 			return ;
 		}
 		

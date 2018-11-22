@@ -1,17 +1,24 @@
 package com.ywsoftware.oa.modules.sys.oauth2;
 
-import com.ywsoftware.oa.modules.sys.domain.entity.SysUserEntity;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.ywsoftware.oa.common.exception.ApplicationException;
+import com.ywsoftware.oa.common.utils.AesHelper;
+import com.ywsoftware.oa.common.utils.CookieHelper;
 import com.ywsoftware.oa.modules.sys.domain.entity.SysUserTokenEntity;
+import com.ywsoftware.oa.modules.sys.domain.login.LoginCookie;
 import com.ywsoftware.oa.modules.sys.service.ShiroService;
-import org.apache.shiro.authc.*;
+import java.util.Set;
+import javax.annotation.Resource;
+import org.apache.shiro.authc.AuthenticationException;
+import org.apache.shiro.authc.AuthenticationInfo;
+import org.apache.shiro.authc.AuthenticationToken;
+import org.apache.shiro.authc.IncorrectCredentialsException;
+import org.apache.shiro.authc.SimpleAuthenticationInfo;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.springframework.stereotype.Component;
-
-import javax.annotation.Resource;
-import java.util.Set;
 
 /**
  * 认证
@@ -35,8 +42,8 @@ public class OAuth2Realm extends AuthorizingRealm {
      */
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
-        SysUserEntity user = (SysUserEntity)principals.getPrimaryPrincipal();
-        Long userId = user.getUserId();
+        LoginCookie user = (LoginCookie)principals.getPrimaryPrincipal();
+        String userId = user.getUserId();
 
         //用户权限列表
         Set<String> permsSet = shiroService.getUserPermissions(userId);
@@ -53,18 +60,22 @@ public class OAuth2Realm extends AuthorizingRealm {
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
         String accessToken = (String) token.getPrincipal();
 
-        //根据accessToken，查询用户信息
+        // 根据accessToken，查询用户信息
         SysUserTokenEntity tokenEntity = shiroService.queryByToken(accessToken);
-        //token失效
+        // token失效
         if(tokenEntity == null || tokenEntity.getExpireTime().getTime() < System.currentTimeMillis()){
             throw new IncorrectCredentialsException("token失效，请重新登录");
         }
 
-        //查询用户信息
-        SysUserEntity user = shiroService.queryUser(tokenEntity.getUserId());
-        //账号锁定
-        if(user.getStatus() == 0){
-            throw new LockedAccountException("账号已被锁定,请联系管理员");
+        String loginCookie = CookieHelper.getCookie("loginCookie");
+        if (loginCookie == null) {
+            throw new ApplicationException("用户cookie失效");
+        }
+        LoginCookie user= null;
+        try {
+            user = new ObjectMapper().readValue(AesHelper.decrypt(loginCookie), LoginCookie.class);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
 
         return new SimpleAuthenticationInfo(user, accessToken, getName());

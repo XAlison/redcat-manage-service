@@ -1,6 +1,7 @@
-package com.ywsoftware.oa.modules.sys.controller;
+package com.ywsoftware.oa.manage.controller;
 
-import com.ywsoftware.oa.modules.sys.model.LoginModel;
+import com.ywsoftware.oa.modules.sys.controller.AbstractController;
+import com.ywsoftware.oa.modules.sys.domain.model.LoginModel;
 import com.ywsoftware.oa.modules.sys.service.impl.AccountService;
 import com.ywsoftware.oa.modules.sys.service.impl.ManagerService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,18 +31,18 @@ public class ManagerController extends AbstractController {
 
     @GetMapping("/getAccountsByPhone")
     public ResponseEntity getAccountsByPhone(String phone) throws Exception {
-        return ok(service.getAccountsByTenantId("getLoginCookie().getTenantId()", phone));
+        return ok(service.getAccountsByTenantId(getUser().getTenantId(), phone));
     }
 
     @PostMapping("/transferManager")
     public ResponseEntity transferManager(@RequestBody LoginModel model) throws Exception {
-        managerService.transferManager(model, "getLoginCookie().getUserId()");
+        managerService.transferManager(model, getUser().getUserId());
         return ok("ok");
     }
 
     @PostMapping("/checkCurrentManager")
     public ResponseEntity checkCurrentManager(@RequestBody LoginModel model) throws Exception {
-        managerService.checkCurrentManager(model, /*getLoginCookie()*/null);
+        managerService.checkCurrentManager(model, getUser());
         return ok("ok");
     }
 

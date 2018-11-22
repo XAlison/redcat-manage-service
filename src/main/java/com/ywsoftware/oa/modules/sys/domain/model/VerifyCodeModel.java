@@ -1,4 +1,4 @@
-package com.ywsoftware.oa.modules.sys.model;
+package com.ywsoftware.oa.modules.sys.domain.model;
 
 /**
  * @ClassName: VerifyCodeModel

@@ -8,6 +8,7 @@ import com.ywsoftware.oa.modules.sys.domain.entity.SysMenuEntity;
 import com.ywsoftware.oa.modules.sys.service.SysMenuService;
 import com.ywsoftware.oa.modules.sys.service.SysRoleMenuService;
 import com.ywsoftware.oa.modules.sys.service.SysUserService;
+import java.util.Objects;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -51,9 +52,9 @@ public class SysMenuServiceImpl extends ServiceImpl<SysMenuDao, SysMenuEntity> i
 	}
 
 	@Override
-	public List<SysMenuEntity> getUserMenuList(Long userId) {
+	public List<SysMenuEntity> getUserMenuList(String userId) {
 		//系统管理员，拥有最高权限
-		if(userId == Constant.SUPER_ADMIN){
+		if(Constant.SUPER_ADMIN.contains(userId)){
 			return getAllMenuList(null);
 		}
 		

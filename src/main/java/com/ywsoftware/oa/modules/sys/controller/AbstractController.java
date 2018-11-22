@@ -1,6 +1,7 @@
 package com.ywsoftware.oa.modules.sys.controller;
 
-import com.ywsoftware.oa.modules.sys.domain.entity.SysUserEntity;
+import com.ywsoftware.oa.modules.sys.domain.entity.Account;
+import com.ywsoftware.oa.modules.sys.domain.login.LoginCookie;
 import org.apache.shiro.SecurityUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,11 +16,11 @@ public abstract class AbstractController {
 
 	protected Logger logger = LoggerFactory.getLogger(getClass());
 	
-	protected SysUserEntity getUser() {
-		return (SysUserEntity) SecurityUtils.getSubject().getPrincipal();
+	protected LoginCookie getUser() {
+		return (LoginCookie) SecurityUtils.getSubject().getPrincipal();
 	}
 
-	protected Long getUserId() {
+	protected String getUserId() {
 		return getUser().getUserId();
 	}
 }

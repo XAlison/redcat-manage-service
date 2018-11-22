@@ -8,5 +8,4 @@ package com.ywsoftware.oa.datasources;
  */
 public interface DataSourceNames {
     String FIRST = "first";
-    String SECOND = "second";
 }

@@ -1,8 +1,9 @@
 package com.ywsoftware.oa.modules.sys.service.mapper;
 
+import com.ywsoftware.oa.modules.sys.domain.PaginatedFilter;
 import com.ywsoftware.oa.modules.sys.domain.entity.Account;
-import com.ywsoftware.oa.modules.sys.model.LoginModel;
-import com.ywsoftware.oa.modules.sys.model.TenantAccountModel;
+import com.ywsoftware.oa.modules.sys.domain.model.LoginModel;
+import com.ywsoftware.oa.modules.sys.domain.model.TenantAccountModel;
 import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
@@ -50,4 +51,8 @@ public interface AccountMapper {
 
     @Select("SELECT COUNT(*) FROM user_account WHERE id=#{id} AND reportPassword=#{securityPasswordHash}")
     boolean validatorSecurity(Account account);
+
+    List<Object> getManageAccounts(PaginatedFilter filter);
+
+    Long getManageAccountsCount(PaginatedFilter filter);
 }

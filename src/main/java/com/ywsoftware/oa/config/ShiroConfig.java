@@ -56,14 +56,18 @@ public class ShiroConfig {
 
         Map<String, String> filterMap = new LinkedHashMap<>();
         filterMap.put("/webjars/**", "anon");
-        filterMap.put("/druid/**", "anon");
-        filterMap.put("/app/**", "anon");
-        filterMap.put("/sys/login", "anon");
+        //filterMap.put("/druid/**", "anon");
+        filterMap.put("/api/accounts/login", "anon");
+        filterMap.put("/api/accounts/getAccountsByPhone", "anon");
+        filterMap.put("/api/verifyCode/**", "anon");
+        filterMap.put("/api/accounts/setManagePassword", "anon");
+        filterMap.put("/api/tenant/updateTenant", "anon");
         filterMap.put("/swagger/**", "anon");
         filterMap.put("/v2/api-docs", "anon");
         filterMap.put("/swagger-ui.html", "anon");
         filterMap.put("/swagger-resources/**", "anon");
         filterMap.put("/captcha.jpg", "anon");
+        filterMap.put("/uploadFiles/logos/**","anon");
         filterMap.put("/**", "oauth2");
         shiroFilter.setFilterChainDefinitionMap(filterMap);
 

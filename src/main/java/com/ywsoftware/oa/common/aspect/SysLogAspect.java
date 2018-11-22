@@ -4,8 +4,9 @@ import com.google.gson.Gson;
 import com.ywsoftware.oa.common.annotation.SysLog;
 import com.ywsoftware.oa.common.utils.HttpContextUtils;
 import com.ywsoftware.oa.common.utils.IPUtils;
+import com.ywsoftware.oa.modules.sys.domain.entity.Account;
 import com.ywsoftware.oa.modules.sys.domain.entity.SysLogEntity;
-import com.ywsoftware.oa.modules.sys.domain.entity.SysUserEntity;
+import com.ywsoftware.oa.modules.sys.domain.login.LoginCookie;
 import com.ywsoftware.oa.modules.sys.service.SysLogService;
 import java.lang.reflect.Method;
 import java.util.Date;
@@ -82,7 +83,7 @@ public class SysLogAspect {
 		sysLog.setIp(IPUtils.getIpAddress(request));
 
 		//用户名
-		String username = ((SysUserEntity) SecurityUtils.getSubject().getPrincipal()).getUsername();
+		String username = ((LoginCookie) SecurityUtils.getSubject().getPrincipal()).getPhone();
 		sysLog.setUsername(username);
 
 		sysLog.setTime(time);

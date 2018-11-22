@@ -1,6 +1,6 @@
 package com.ywsoftware.oa.modules.sys.controller;
 
-import com.ywsoftware.oa.modules.sys.model.VerifyCodeModel;
+import com.ywsoftware.oa.modules.sys.domain.model.VerifyCodeModel;
 import com.ywsoftware.oa.modules.sys.service.impl.SecurityService;
 import java.io.IOException;
 import java.rmi.RemoteException;
